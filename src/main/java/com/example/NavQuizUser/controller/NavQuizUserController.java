@@ -1,9 +1,11 @@
 package com.example.NavQuizUser.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +35,17 @@ public class NavQuizUserController {
 	@GetMapping("/getUser/{user}")
 	public String getUserByUsername(@PathVariable String user)
 	{
-		String userDetails = navQuizUserService.getUserByUsername(user).toString();
-		return userDetails;
+		return navQuizUserService.getUserByUsername(user).toString();	
+	}
+	
+	@PutMapping("/updatePassword")
+	public String updatePassword(@RequestBody NavQuizUserModel user) {
+		return navQuizUserService.updatePassword(user);
+	}
+	
+	@DeleteMapping("/deleteUser/{user}")
+	public String deleteUser(@PathVariable String user)
+	{
+		return navQuizUserService.deleteUser(user);
 	}
 }
