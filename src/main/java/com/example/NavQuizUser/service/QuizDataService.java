@@ -1,10 +1,12 @@
 package com.example.NavQuizUser.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.NavQuizUser.entity.QuizDataModel;
 import com.example.NavQuizUser.repository.QuizDataModelRepository;
 
+@Service
 public class QuizDataService {
 	
 	@Autowired
